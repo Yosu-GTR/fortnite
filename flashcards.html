@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortnite - Flashcards</title>
+    <link rel="stylesheet" href="flashcards.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Fortnite Fan Page</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="modos_de_juego.html">Modos de Juego</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="flashcards.html">Flashcards</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h2>¡Pon a Prueba tus Conocimientos de Fortnite!</h2>
+    </div>
+
+    <div class="container">
+      <section id="introduccion-flashcards">
+        <h2>¿Cuánto sabes de Fortnite?</h2>
+        <p style="text-align: center">
+          Responde las preguntas en las flashcards. Haz clic en la tarjeta para
+          ver la respuesta.
+        </p>
+      </section>
+
+      <section id="flashcard-game">
+        <div class="flashcard-container">
+          <div class="flashcard" id="current-flashcard">
+            <div class="flashcard-inner">
+              <div class="flashcard-front" id="flashcard-term"></div>
+              <div class="flashcard-back" id="flashcard-definition"></div>
+            </div>
+          </div>
+          <div class="flashcard-controls">
+            <button id="prev-btn">Anterior</button>
+            <button id="next-btn">Siguiente</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2023 Fortnite Fan Page. Todos los derechos reservados a Epic
+        Games.
+      </p>
+    </footer>
+
+    <script>
+      const flashcardsData = [
+        {
+          term: "¿Qué es un 'Loot Llama'?",
+          definition:
+            "Una llama brillante que al ser destruida libera una gran cantidad de objetos valiosos como armas, materiales y munición.",
+        },
+        {
+          term: "¿Qué significa 'Rushing' en Fortnite?",
+          definition:
+            "Avanzar agresivamente hacia un oponente para atacarlo, a menudo construyendo rápidamente para ganar altura o cobertura.",
+        },
+        {
+          term: "¿Qué son los 'Shield Potions'?",
+          definition:
+            "Consumibles que restauran el escudo de tu personaje, aumentando tu salud efectiva. Hay pociones pequeñas y grandes.",
+        },
+        {
+          term: "¿Cuál es el objetivo principal del modo Battle Royale?",
+          definition:
+            "Ser el último jugador o equipo en pie en la isla, eliminando a los demás 99 competidores.",
+        },
+        {
+          term: "¿Qué son los 'Mats'?",
+          definition:
+            "Abreviatura de 'materiales' (madera, piedra, metal), usados para construir estructuras en el juego.",
+        },
+        {
+          term: "¿Qué es un 'Victory Royale'?",
+          definition:
+            "La frase que aparece en pantalla cuando ganas una partida en los modos Battle Royale o Cero Construcción.",
+        },
+        {
+          term: "¿Quién es el desarrollador de Fortnite?",
+          definition: "Epic Games.",
+        },
+        {
+          term: "¿Qué es un 'Pickaxe'?",
+          definition:
+            "La herramienta básica que todos los jugadores tienen al inicio de una partida, usada para recolectar materiales y como arma cuerpo a cuerpo de último recurso.",
+        },
+      ];
+
+      let currentCardIndex = 0;
+      const flashcardElement = document.getElementById("current-flashcard");
+      const termElement = document.getElementById("flashcard-term");
+      const definitionElement = document.getElementById("flashcard-definition");
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+
+      function updateFlashcard() {
+        const currentCard = flashcardsData[currentCardIndex];
+        termElement.textContent = currentCard.term;
+        definitionElement.textContent = currentCard.definition;
+        flashcardElement.classList.remove("flipped"); // Asegura que no esté volteada al cambiar
+      }
+
+      // Voltear la tarjeta al hacer clic
+      flashcardElement.addEventListener("click", () => {
+        flashcardElement.classList.toggle("flipped");
+      });
+
+      // Botón "Siguiente"
+      nextBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita que el clic en el botón voltee la tarjeta
+        currentCardIndex = (currentCardIndex + 1) % flashcardsData.length;
+        updateFlashcard();
+      });
+
+      // Botón "Anterior"
+      prevBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita que el clic en el botón voltee la tarjeta
+        currentCardIndex =
+          (currentCardIndex - 1 + flashcardsData.length) %
+          flashcardsData.length;
+        updateFlashcard();
+      });
+
+      // Cargar la primera tarjeta al iniciar
+      updateFlashcard();
+    </script>
+  </body>
+</html>

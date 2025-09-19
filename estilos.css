@@ -1,0 +1,143 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  background-color: #1a1a2e; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  line-height: 1.6;
+}
+header {
+  background-color: #16213e; /* Azul oscuro para el encabezado */
+  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 3px solid #e94560; /* Borde rojo */
+}
+header h1 {
+  margin: 0;
+  color: #0f3460; /* Azul oscuro para el título */
+  font-size: 2.8em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #0f3460; /* Azul más oscuro para la navegación */
+  padding: 0.7rem 0;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+nav ul li a:hover {
+  color: #e94560; /* Rojo al pasar el mouse */
+}
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+.hero {
+  background: url("https://cdn2.unrealengine.com/fortnite-key-art-line-up-ch5s2-1920x1080-87747e9d7246.jpg")
+    no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-bottom: 30px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurecer la imagen */
+}
+.hero h2 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  z-index: 1; /* Para que el texto esté sobre el overlay */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+}
+.hero p {
+  font-size: 1.5em;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+section {
+  background-color: #0f3460; /* Azul oscuro para las secciones */
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+section h2 {
+  color: #e94560; /* Rojo para los títulos de sección */
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.feature-item {
+  background-color: #16213e; /* Azul oscuro más claro */
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 30%;
+  min-width: 280px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+.feature-item h3 {
+  color: #0f3460; /* Azul oscuro para los subtítulos */
+  margin-bottom: 10px;
+}
+footer {
+  background-color: #16213e;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 30px;
+  border-top: 3px solid #e94560;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2.5em;
+  }
+  .hero p {
+    font-size: 1.2em;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  .feature-item {
+    width: 90%;
+  }
+}
